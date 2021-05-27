@@ -52,8 +52,7 @@ export default {
  display: block;
  text-align: center;
  list-style-type: none;
- max-width: 60vw;
- margin: 2rem auto;
+
 }
 
 .emoji {
