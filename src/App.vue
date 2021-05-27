@@ -1,16 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <EmojisListing/>
+  <Button label="Générer une histoire !" @button-was-clicked="refreshStory" />
+  <EmojisListing :key="refreshKey"/>
 </template>
 
 <script>
 import EmojisListing from './components/EmojisListing.vue'
+import Button from './components/Button.vue'
+
 
 export default {
   name: 'App',
   components: {
-    EmojisListing
-  }
+    EmojisListing,
+    Button
+  },
+  methods: {
+    refreshStory() {
+      this.refreshKey++;
+    }
+  },
+  data() {
+    return {
+      refreshKey: 0
+    }
+  },
 }
 </script>
 
