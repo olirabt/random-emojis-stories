@@ -1,7 +1,7 @@
 <template>
 <div>
 	<textarea v-model="content" placeholder="Écrivez une histoire" rows="6"></textarea>
-	<button @click="validateStory">Valider cette histoire</button>  <!-- //todo: resuse Button -->
+	<button @click="validateStory">Copier cette histoire</button>  <!-- //todo: resuse Button -->
 </div>
   
 </template>
