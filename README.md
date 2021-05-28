@@ -1,4 +1,5 @@
 # random-emojis-stories
+🖥️ 🔀 💭 ✍️ 🤗 
 
 ## Project setup
 
