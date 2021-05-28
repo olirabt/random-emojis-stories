@@ -16,11 +16,9 @@ export default {
   
   methods: {
     onClick() {
-			console.log('wesh')
 			this.$emit('button-was-clicked');
 		}
   },
-
 }
 
 </script>

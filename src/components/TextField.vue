@@ -17,6 +17,9 @@ export default {
 	},
 	methods: {
 		validateStory() {
+			const toCopy = document.querySelector('textarea');
+			toCopy.select();
+			document.execCommand('copy');
 			this.$emit('update-story', this.content);
 		},
 	},

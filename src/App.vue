@@ -3,6 +3,7 @@
     <Button label="Générer une histoire !" @button-was-clicked="refreshKey++" />
     <EmojisListing :key="refreshKey"/>
     <TextField @update-story="refreshStory" />
+    <div class="toast" v-bind:class="{ visible: showToast }">Le texte a été copié !</div>  <!-- todo: component + transition clean parce que là c'est pas ouf -->
   </div>
 </template>
 
@@ -19,17 +20,19 @@ export default {
     Button,
     TextField
   },
-  methods: {
-    refreshStory(val) {
-      this.enterredStory = val;
-    },
- 
-  },
   data() {
     return {
       refreshKey: 0,
-      enterredStory: ''
+      enterredStory: '',
+      showToast: false
     }
+  },
+  methods: {
+    refreshStory(val) {
+      this.showToast = true;
+      this.enterredStory = val;
+      setTimeout(() => this.showToast = false, 4000);
+    },
   },
 }
 </script>
@@ -48,5 +51,22 @@ export default {
   display: block;
   max-width: 60vw;
   margin: 2rem auto;
+}
+
+.toast {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  background: chartreuse;
+  transition: opacity .3s ease-out;
+}
+
+.visible {
+  opacity: 1;
 }
 </style>
