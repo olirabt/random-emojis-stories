@@ -1,5 +1,6 @@
 <template>
 <div>
+	<!-- todo: fancy field facon animal crossing: https://codepen.io/andymerskin/pen/NWqQydM -->
 	<textarea v-model="content" placeholder="Écrivez une histoire" rows="6"></textarea>
 	<button @click="validateStory">Copier cette histoire</button>  <!-- //todo: resuse Button -->
 </div>
@@ -17,9 +18,6 @@ export default {
 	},
 	methods: {
 		validateStory() {
-			const toCopy = document.querySelector('textarea');
-			toCopy.select();
-			document.execCommand('copy');
 			this.$emit('update-story', this.content);
 		},
 	},

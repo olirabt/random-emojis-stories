@@ -36,6 +36,7 @@ export default {
         this.selectedEmojis.push(emojiCompact[this.generateRange(0, numberOfEmojis)]);
       }
 
+      this.$emit('update-emojis', this.selectedEmojis);
       return;
     }
   },
@@ -52,6 +53,7 @@ export default {
  display: block;
  text-align: center;
  list-style-type: none;
+ padding: 0;
 
 }
 

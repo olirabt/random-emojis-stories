@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <Button label="Générer une histoire !" @button-was-clicked="refreshKey++" />
-    <EmojisListing :key="refreshKey"/>
-    <TextField @update-story="refreshStory" />
+    <Button label="Générer une nouvelle histoire !" @button-was-clicked="refreshKey++" />
+    <EmojisListing @update-emojis="validateEmojis" :key="refreshKey"/>
+    <TextField @update-story="validateStory" />
     <div class="toast" v-bind:class="{ visible: showToast }">Le texte a été copié !</div>  <!-- todo: component + transition clean parce que là c'est pas ouf -->
   </div>
 </template>
@@ -24,14 +24,20 @@ export default {
     return {
       refreshKey: 0,
       enterredStory: '',
-      showToast: false
+      showToast: false,
+      selectedEmojis: []
     }
   },
   methods: {
-    refreshStory(val) {
+    validateEmojis(val) {
+      this.selectedEmojis = val.join(" ").toString();
+    },
+    validateStory(val) {
       this.showToast = true;
-      this.enterredStory = val;
-      setTimeout(() => this.showToast = false, 4000);
+      const emojisAndStory = this.selectedEmojis + "\n" + val;
+
+      navigator.clipboard.writeText(emojisAndStory);
+      setTimeout(() => this.showToast = false, 3500);
     },
   },
 }
@@ -51,6 +57,8 @@ export default {
   display: block;
   max-width: 60vw;
   margin: 2rem auto;
+  text-align: center;
+  padding: 0;
 }
 
 .toast {
