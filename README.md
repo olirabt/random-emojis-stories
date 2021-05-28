@@ -1,5 +1,10 @@
 # random-emojis-stories
-🖥️ 🔀 💭 ✍️ 🤗 
+
+🖥️ 🔀 💭 ✍️ 🤗
+
+## Todo
+
+- story length slider
 
 ## Project setup
 
